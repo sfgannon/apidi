@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace ApiDi.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/[controller]/[action]")]
 public class WeatherForecastController : ControllerBase
 {
     private readonly IBasicService basic;
@@ -30,5 +30,10 @@ public class WeatherForecastController : ControllerBase
     [HttpGet(Name = "GetTest")]
     public Task<string> GetTest() {
         return basic.GetString();
+    }
+
+    [HttpGet(Name = "GetApi")]
+    public Task<string> GetApi(){
+        return basic.GetApi();
     }
 }

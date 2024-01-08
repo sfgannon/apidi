@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Projects\\ApiDi\\ApiDi.csproj": {}
+    "E:\\Projects\\apidigit\\ApiDi.csproj": {}
   },
   "projects": {
-    "E:\\Projects\\ApiDi\\ApiDi.csproj": {
+    "E:\\Projects\\apidigit\\ApiDi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Projects\\ApiDi\\ApiDi.csproj",
+        "projectUniqueName": "E:\\Projects\\apidigit\\ApiDi.csproj",
         "projectName": "ApiDi",
-        "projectPath": "E:\\Projects\\ApiDi\\ApiDi.csproj",
+        "projectPath": "E:\\Projects\\apidigit\\ApiDi.csproj",
         "packagesPath": "C:\\Users\\seanf\\.nuget\\packages\\",
-        "outputPath": "E:\\Projects\\ApiDi\\obj\\",
+        "outputPath": "E:\\Projects\\apidigit\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\seanf\\AppData\\Roaming\\NuGet\\NuGet.Config"
