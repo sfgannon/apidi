@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace ApiDi.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("[controller]/[action]")]
 public class WeatherForecastController : ControllerBase
 {
     private readonly IBasicService basic;
@@ -15,6 +15,7 @@ public class WeatherForecastController : ControllerBase
         "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
     };
 
+    // [root]/WeatherForecast/Get
     [HttpGet(Name = "GetWeatherForecast")]
     public IEnumerable<WeatherForecast> Get()
     {
@@ -27,8 +28,9 @@ public class WeatherForecastController : ControllerBase
         .ToArray();
     }
 
+    // [root]/WeatherForecast/SomeData
     [HttpGet(Name = "GetTest")]
-    public Task<string> GetTest() {
+    public Task<string> SomeData() {
         return basic.GetString();
     }
 }

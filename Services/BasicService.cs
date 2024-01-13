@@ -5,6 +5,6 @@ public class BasicService : IBasicService
         _client = client;
     }
     public async Task<string> GetString() {
-        return "Okay";
+        return "okay";
     }
 }
