@@ -4,7 +4,6 @@ namespace ApiDi.Controllers;
 
 [ApiController]
 [Route("api/[controller]/[action]")]
-[Route("[controller]/[action]")]
 public class WeatherForecastController : ControllerBase
 {
     private readonly IBasicService basic;
