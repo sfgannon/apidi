@@ -15,7 +15,7 @@ public class WeatherForecastController : ControllerBase
         "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
     };
 
-    // [root]/WeatherForecast/Get
+    // [root]/api/WeatherForecast/Get
     [HttpGet(Name = "GetWeatherForecast")]
     public IEnumerable<WeatherForecast> Get()
     {
@@ -28,12 +28,13 @@ public class WeatherForecastController : ControllerBase
         .ToArray();
     }
 
-    // [root]/WeatherForecast/SomeData
+    // [root]/api/WeatherForecast/SomeData
     [HttpGet(Name = "GetTest")]
     public Task<string> SomeData() {
         return basic.GetString();
     }
 
+    // [root]/api/WeatherForecase/GetApi
     [HttpGet(Name = "GetApi")]
     public Task<string> GetApi(){
         return basic.GetApi();
