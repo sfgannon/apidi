@@ -8,7 +8,7 @@ public class BasicService : IBasicService
         _client.BaseAddress = new Uri("http://localhost:5121");
     }
     public async Task<string> GetString() {
-        return "Okay";
+        return "okay";
     }
 
     public async Task<string> GetApi(){
