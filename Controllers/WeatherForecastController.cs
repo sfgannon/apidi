@@ -39,4 +39,10 @@ public class WeatherForecastController : ControllerBase
     public Task<string> GetApi(){
         return basic.GetApi();
     }
+
+    // [root]/api/WeatherForecase/ApiCall
+    [HttpGet(Name = "ApiCall")]
+    public Task<string> ApiCall(){
+        return basic.ApiCall();
+    }
 }
