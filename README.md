@@ -1,4 +1,4 @@
-Basic Dependency Inejection Concepts
+Basic Dependency Injection Concepts
 - Create a service
 - Register with service container
 - Inject HttpClient
