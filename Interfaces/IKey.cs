@@ -1,5 +1,5 @@
 public interface IKey
 {
-    public string GetTwelveData();
-    public string GetAlphaVantage();
+    public string? GetTwelveData();
+    public string? GetAlphaVantage();
 }
