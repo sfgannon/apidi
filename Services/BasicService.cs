@@ -26,7 +26,7 @@ public class BasicService : IBasicService
         return string.Format("Key Values are {0} and {1}", TwelveDataKey, AlphaVantageKey);
     }
 
-    public async Task<TimeSeries> GetSymbol(AlphaVantageOptions opts) {
+    public async Task<TimeSeries> GetSymbol(AlphaVantageRequest opts) {
         
         return new TimeSeries();
     }

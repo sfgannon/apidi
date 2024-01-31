@@ -46,4 +46,12 @@ namespace ApiDi.Classes
             this.Values = opts.ts;
         }
     }
+    public class AlphaVantageRequest {
+        string sSymbol { get; set; } = string.Empty;
+        string sFunction { get; set; } = string.Empty;
+        public AlphaVantageRequest(string pSymbol, string pFunction) {
+            sSymbol = pSymbol;
+            sFunction = pFunction;
+        }
+    }
 }

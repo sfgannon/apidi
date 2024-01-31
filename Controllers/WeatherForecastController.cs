@@ -1,3 +1,7 @@
+using System.Collections.Specialized;
+using System.Net;
+using System.Web;
+using ApiDi.Classes;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ApiDi.Controllers;
@@ -34,15 +38,20 @@ public class WeatherForecastController : ControllerBase
         return basic.GetString();
     }
 
-    // [root]/api/WeatherForecase/GetApi
+    // [root]/api/WeatherForecast/GetApi
     [HttpGet(Name = "GetApi")]
     public Task<string> GetApi(){
         return basic.GetApi();
     }
 
-    // [root]/api/WeatherForecase/ApiCall
+    // [root]/api/WeatherForecast/ApiCall
     [HttpGet(Name = "ApiCall")]
-    public Task<string> ApiCall(){
-        return basic.ApiCall();
+    public Task<TimeSeries> ApiCall(string rSymbol = "", string rFunction = ""){
+        if (!String.IsNullOrEmpty(rSymbol) && !String.IsNullOrEmpty(rFunction)) {
+            AlphaVantageRequest req = new AlphaVantageRequest(rSymbol, rFunction);
+            return basic.GetSymbol(req);
+        } else {
+            throw new ArgumentException("Arguments not specified");
+        }
     }
 }
