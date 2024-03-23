@@ -1,6 +1,3 @@
-using System.Collections.Specialized;
-using System.Net;
-using System.Web;
 using ApiDi.Classes;
 using Microsoft.AspNetCore.Mvc;
 
@@ -54,4 +51,10 @@ public class WeatherForecastController : ControllerBase
             throw new ArgumentException("Arguments not specified");
         }
     }
+
+    // [HttpGet(Name = "GetSymbol")]
+    // public Task<TimeSeries> GetSymbol() {
+    //     AlphaVantageOptions opts = new AlphaVantageOptions();
+    //     return basic.GetSymbol(opts);
+    // }
 }
