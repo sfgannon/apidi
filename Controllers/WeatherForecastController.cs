@@ -51,10 +51,4 @@ public class WeatherForecastController : ControllerBase
             throw new ArgumentException("Arguments not specified");
         }
     }
-
-    // [HttpGet(Name = "GetSymbol")]
-    // public Task<TimeSeries> GetSymbol() {
-    //     AlphaVantageOptions opts = new AlphaVantageOptions();
-    //     return basic.GetSymbol(opts);
-    // }
 }
