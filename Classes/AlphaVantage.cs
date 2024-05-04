@@ -1,11 +1,13 @@
+using System.Text.Json.Serialization;
 using System.Threading.Tasks.Dataflow;
 
 namespace ApiDi.Classes
 {
     public class AlphaVantageMeta
     {
+        [JsonPropertyName("1. Information")]
         public string sInformation;
-        public string sSymbol;
+            public string sSymbol;
         public string sLastRefreshed;
         public string sInterval;
         public string sOutputSize;

@@ -1,6 +1,8 @@
 using System.Text.Json;
 using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
+using ApiDi.Classes;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ApiDi.Controllers;
@@ -17,7 +19,7 @@ public class AlphaVantageController : ControllerBase
         _apiKey = keyService.GetAlphaVantage();
     }
     [HttpGet(Name = "GetTS")]
-    public async Task<string> GetTS(string pFunction, string pSymbol, string pInterval) {
+    public async Task<string> GetTS(string pFunction = "TIME_SERIES_INTRADAY", string pSymbol = "QQQ", string pInterval = "5min") {
         string requestUri = string.Format(_baseUri, pFunction, pSymbol, pInterval, _apiKey);
         using HttpResponseMessage msg = await _client.GetAsync(requestUri);
         // Serialize this into a TimeSeries, change return type
@@ -25,4 +27,13 @@ public class AlphaVantageController : ControllerBase
         Console.WriteLine(output);
         return JsonSerializer.Serialize(output);
     }
+
+    [HttpGet(Name="TimeSeries")]
+    public async Task<TimeSeries?> GetTimeSeries(string pFunction = "TIME_SERIES_INTRADAY", string pSymbol = "QQQ", string pInterval = "5min") {
+        using HttpResponseMessage msg = await _client.GetAsync(string.Format(_baseUri, pFunction, pSymbol, pInterval, _apiKey));
+        string responseContent = await msg.Content.ReadAsStringAsync();
+        TimeSeries? ret = JsonSerializer.Deserialize<TimeSeries>(responseContent, new JsonSerializerOptions() { PropertyNameCaseInsensitive = true});
+        Console.WriteLine(responseContent);
+        return ret;
+    }   
 }
