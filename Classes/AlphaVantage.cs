@@ -49,8 +49,8 @@ namespace ApiDi.Classes
         [JsonPropertyName("Meta Data")]
         public AVMeta MetaData {get; set; }
 
-        [JsonPropertyName("Time Series (5min)")]
-        public Dictionary<string, object> Points;
+        [JsonPropertyName("Time Series (30min)")]
+        public Dictionary<string, AVTSPoint> TimeSeries { get; set; }
 
         public AVTS() {}
     }
