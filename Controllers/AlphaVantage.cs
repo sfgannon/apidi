@@ -29,11 +29,10 @@ public class AlphaVantageController : ControllerBase
     }
 
     [HttpGet(Name="TimeSeries")]
-    public async Task<TimeSeries?> GetTimeSeries(string pFunction = "TIME_SERIES_INTRADAY", string pSymbol = "QQQ", string pInterval = "5min") {
+    public async Task<AVTS?> GetTimeSeries(string pFunction = "TIME_SERIES_INTRADAY", string pSymbol = "QQQ", string pInterval = "5min") {
         using HttpResponseMessage msg = await _client.GetAsync(string.Format(_baseUri, pFunction, pSymbol, pInterval, _apiKey));
         string responseContent = await msg.Content.ReadAsStringAsync();
-        TimeSeries? ret = JsonSerializer.Deserialize<TimeSeries>(responseContent, new JsonSerializerOptions() { PropertyNameCaseInsensitive = true});
-        Console.WriteLine(responseContent);
+        AVTS? ret = JsonSerializer.Deserialize<AVTS>(responseContent, new JsonSerializerOptions() { PropertyNameCaseInsensitive = true});
         return ret;
     }   
 }
