@@ -40,15 +40,4 @@ public class WeatherForecastController : ControllerBase
     public Task<string> GetApi(){
         return basic.GetApi();
     }
-
-    // [root]/api/WeatherForecast/ApiCall
-    [HttpGet(Name = "ApiCall")]
-    public Task<TimeSeries> ApiCall(string rSymbol = "", string rFunction = ""){
-        if (!String.IsNullOrEmpty(rSymbol) && !String.IsNullOrEmpty(rFunction)) {
-            AlphaVantageRequest req = new AlphaVantageRequest(rSymbol, rFunction);
-            return basic.GetSymbol(req);
-        } else {
-            throw new ArgumentException("Arguments not specified");
-        }
-    }
 }
