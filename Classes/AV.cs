@@ -1,7 +1,4 @@
 using System.Text.Json.Serialization;
-using Microsoft.AspNetCore.SignalR;
-using Microsoft.Net.Http.Headers;
-using Microsoft.VisualBasic;
 
 namespace ApiDi.Classes
 {

@@ -35,4 +35,4 @@ public class AlphaVantageController : ControllerBase
         AVTS? ret = JsonSerializer.Deserialize<AVTS>(responseContent, new JsonSerializerOptions() { PropertyNameCaseInsensitive = true});
         return ret;
     }   
-}
+}   
