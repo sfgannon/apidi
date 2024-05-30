@@ -12,7 +12,7 @@ builder.Services.AddTransient<IBasicService, BasicService>(serviceProvider =>
 builder.Services.AddHttpClient<BasicService>();
 
 builder.Services.AddTransient<IAVService, AVService>(serviceProvider =>
-    new AVService(client: serviceProvider.GetRequiredService<HttpClient>(), baseUri: "https://www.alphavantage.co/query?function={0}&symbol={1}&interval={2}&apikey={3}", apiKey: serviceProvider.GetRequiredService<IKey>().GetAlphaVantage() != null ? serviceProvider.GetRequiredService<IKey>().GetAlphaVantage() : throw new Exception("Config value 'AlphaVantageKey' not found on Service Initialization.")));
+    new AVService(client: serviceProvider.GetRequiredService<HttpClient>(), baseUri: "https://www.alphavantage.co/query?function={0}&symbol={1}&interval={2}&apikey={3}", apiKey: serviceProvider.GetRequiredService<IKey>().GetAlphaVantage()));
 builder.Services.AddHttpClient<AVService>();
 
 builder.Services.AddControllers();
