@@ -33,10 +33,11 @@ public class AlphaVantageController : ControllerBase
 
     [HttpGet(Name="TimeSeries")]
     public async Task<AVTS?> GetTimeSeries(string pFunction = "TIME_SERIES_INTRADAY", string pSymbol = "QQQ", string pInterval = "30min") {
-        // using HttpResponseMessage msg = await _client.GetAsync(string.Format(_baseUri, pFunction, pSymbol, pInterval, _apiKey));
-        // string responseContent = await msg.Content.ReadAsStringAsync();
-        // AVTS? ret = JsonSerializer.Deserialize<AVTS>(responseContent, new JsonSerializerOptions() { PropertyNameCaseInsensitive = true});
-        // return ret;
-        return await _service.GetTS(pFunction, pSymbol, pInterval);
+        return await _service.GetTimeSeries(pFunction, pSymbol, pInterval);
+    }   
+
+    [HttpGet(Name="Daily")]
+    public async Task<AVTS?> GetDaily(string pFunction = "TIME_SERIES_DAILY", string pSymbol = "QQQ") {
+        return await _service.GetDaily(pFunction, pSymbol);
     }   
 }
