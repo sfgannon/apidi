@@ -16,7 +16,7 @@ namespace ApiDi.Services {
         public async Task<AVTS> GetTS(string pFunction = "TIME_SERIES_INTRADAY", string pSymbol = "QQQ", string pInterval = "5min") {
             using HttpResponseMessage msg = await _client.GetAsync(string.Format(_baseUri, pFunction, pSymbol, pInterval, _apiKey));
             string responseContent = await msg.Content.ReadAsStringAsync();
-            AVTS? ret = JsonSerializer.Deserialize<AVTS>(responseContent, new JsonSerializerOptions() { PropertyNameCaseInsensitive = true});
+            AVTS? ret = JsonSerializer.Deserialize<AVTS>(responseContent, new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
             return ret;
         }
     }

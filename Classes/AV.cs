@@ -46,9 +46,39 @@ namespace ApiDi.Classes
     public class AVTS {
         [JsonPropertyName("Meta Data")]
         public AVMeta MetaData {get; set; }
+
+        [JsonPropertyName("Time Series")]
+        public Dictionary<string, AVTSPoint> TimeSeries { get; set; }
+    
+        [JsonPropertyName("Time Series (60min)")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public Dictionary<string, AVTSPoint> TimeSeries60 { set {
+            this.TimeSeries = value;
+        }}
     
         [JsonPropertyName("Time Series (30min)")]
-        public Dictionary<string, AVTSPoint> TimeSeries { get; set; }
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public Dictionary<string, AVTSPoint> TimeSeries30 { set {
+            this.TimeSeries = value;
+        }}
+    
+        [JsonPropertyName("Time Series (15min)")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public Dictionary<string, AVTSPoint> TimeSeries15 { set {
+            this.TimeSeries = value;
+        }}
+    
+        [JsonPropertyName("Time Series (5min)")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public Dictionary<string, AVTSPoint> TimeSeries5 { set {
+            this.TimeSeries = value;
+        }}
+    
+        [JsonPropertyName("Time Series (1min)")]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+        public Dictionary<string, AVTSPoint> TimeSeries1 { set {
+            this.TimeSeries = value;
+        }}
 
         public AVTS() {}
     }
